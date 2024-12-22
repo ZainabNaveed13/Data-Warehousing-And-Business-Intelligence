@@ -43,3 +43,4 @@ Start by cloning the repository to your local machine using the following comman
 ```bash
 git clone https://github.com/your-username/Aatawarehousing-And-Business-Intelligence.git
 
+cd datawarehouse-and-Business-Intelligence
