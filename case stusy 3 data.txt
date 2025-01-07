@@ -1,0 +1,221 @@
+### 1. **Order Fact Table (30 rows)**
+
+```sql
+INSERT INTO Order_Fact (Order_ID, Restaurant_ID, Customer_ID, Delivery_ID, Menu_Item_ID, Date_ID, Quantity, Total_Amount, Delivery_Fee)
+VALUES
+(1, 1, 1, 1, 1, 1, 2, 39.98, 5.00),
+(2, 2, 2, 2, 2, 2, 1, 49.99, 3.50),
+(3, 3, 3, 3, 3, 3, 3, 119.97, 4.00),
+(4, 4, 4, 4, 4, 4, 2, 159.98, 6.00),
+(5, 5, 5, 5, 5, 5, 1, 59.99, 3.00),
+(6, 6, 6, 6, 6, 6, 2, 139.98, 4.50),
+(7, 7, 7, 7, 7, 7, 5, 149.95, 5.00),
+(8, 8, 8, 8, 8, 8, 3, 269.97, 7.00),
+(9, 9, 9, 9, 9, 9, 4, 159.96, 4.50),
+(10, 10, 10, 10, 10, 10, 1, 24.99, 2.00),
+(11, 11, 11, 11, 11, 11, 3, 104.97, 3.50),
+(12, 12, 12, 12, 12, 12, 2, 69.98, 2.50),
+(13, 13, 13, 13, 13, 13, 1, 19.99, 1.00),
+(14, 14, 14, 14, 14, 14, 4, 99.96, 3.00),
+(15, 15, 15, 15, 15, 15, 5, 199.95, 6.00),
+(16, 16, 16, 16, 16, 16, 2, 49.98, 2.50),
+(17, 17, 17, 17, 17, 17, 1, 44.99, 1.50),
+(18, 18, 18, 18, 18, 18, 1, 59.99, 3.00),
+(19, 19, 19, 19, 19, 19, 3, 149.97, 4.00),
+(20, 20, 20, 20, 20, 20, 2, 69.98, 2.50),
+(21, 21, 21, 21, 21, 21, 3, 239.97, 7.50),
+(22, 22, 22, 22, 22, 22, 5, 149.95, 6.00),
+(23, 23, 23, 23, 23, 23, 1, 19.99, 1.50),
+(24, 24, 24, 24, 24, 24, 4, 99.96, 3.00),
+(25, 25, 25, 25, 25, 25, 3, 104.97, 3.50),
+(26, 26, 26, 26, 26, 26, 1, 39.99, 2.00),
+(27, 27, 27, 27, 27, 27, 2, 99.98, 3.00),
+(28, 28, 28, 28, 28, 28, 4, 59.96, 2.50),
+(29, 29, 29, 29, 29, 29, 2, 69.98, 3.00),
+(30, 30, 30, 30, 30, 30, 1, 34.99, 1.00);
+```
+
+### 2. **Restaurant Dimension Table (30 rows)**
+
+```sql
+INSERT INTO Restaurant_Dimension (Restaurant_ID, Restaurant_Name, Cuisine_Type, Location, Rating)
+VALUES
+(1, 'Pizza Palace', 'Italian', 'New York', 4.5),
+(2, 'Sushi World', 'Japanese', 'Los Angeles', 4.2),
+(3, 'Burger Haven', 'American', 'Chicago', 4.7),
+(4, 'Taco Fiesta', 'Mexican', 'San Francisco', 4.3),
+(5, 'Curry House', 'Indian', 'Houston', 4.0),
+(6, 'Pasta Paradise', 'Italian', 'Miami', 4.4),
+(7, 'Ramen Republic', 'Japanese', 'Boston', 4.6),
+(8, 'BBQ Joint', 'American', 'Dallas', 4.1),
+(9, 'Dumpling Den', 'Chinese', 'Seattle', 4.3),
+(10, 'Sandwich Shack', 'American', 'Denver', 4.2),
+(11, 'Pasta Place', 'Italian', 'Austin', 4.5),
+(12, 'Pho Paradise', 'Vietnamese', 'San Diego', 4.7),
+(13, 'Steak House', 'American', 'Los Angeles', 4.8),
+(14, 'Falafel Feast', 'Middle Eastern', 'Washington, D.C.', 4.3),
+(15, 'Churro Corner', 'Spanish', 'New York', 4.4),
+(16, 'Sushi Bar', 'Japanese', 'Portland', 4.2),
+(17, 'Pizza Point', 'Italian', 'Miami', 4.1),
+(18, 'BBQ Barn', 'American', 'Chicago', 4.3),
+(19, 'Biryani Bites', 'Indian', 'Atlanta', 4.6),
+(20, 'Taco Town', 'Mexican', 'San Antonio', 4.4),
+(21, 'Wok This Way', 'Chinese', 'New York', 4.5),
+(22, 'Grill Guys', 'American', 'Los Angeles', 4.7),
+(23, 'Dim Sum Delight', 'Chinese', 'San Francisco', 4.0),
+(24, 'Shawarma Shop', 'Middle Eastern', 'Houston', 4.2),
+(25, 'Noodle House', 'Asian', 'Dallas', 4.4),
+(26, 'Bagel Bliss', 'American', 'Chicago', 4.3),
+(27, 'Wrap World', 'Mediterranean', 'Portland', 4.5),
+(28, 'Kebab Kingdom', 'Middle Eastern', 'Boston', 4.6),
+(29, 'Waffle Wonder', 'Belgian', 'Seattle', 4.4),
+(30, 'Chili Champs', 'American', 'Denver', 4.3);
+```
+
+### 3. **Customer Dimension Table (30 rows)**
+
+```sql
+INSERT INTO Customer_Dimension (Customer_ID, Customer_Name, Email, Loyalty_Tier, Join_Date)
+VALUES
+(1, 'John Doe', 'john.doe@example.com', 'Silver', '2023-01-15'),
+(2, 'Jane Smith', 'jane.smith@example.com', 'Gold', '2022-12-05'),
+(3, 'Mike Johnson', 'mike.johnson@example.com', 'Platinum', '2024-03-20'),
+(4, 'Emily Davis', 'emily.davis@example.com', 'Silver', '2022-08-10'),
+(5, 'David Williams', 'david.williams@example.com', 'Gold', '2021-07-22'),
+(6, 'Sarah Brown', 'sarah.brown@example.com', 'Platinum', '2023-11-11'),
+(7, 'William Taylor', 'william.taylor@example.com', 'Silver', '2022-02-28'),
+(8, 'Olivia Miller', 'olivia.miller@example.com', 'Gold', '2021-09-14'),
+(9, 'James Wilson', 'james.wilson@example.com', 'Platinum', '2024-04-25'),
+(10, 'Benjamin Moore', 'benjamin.moore@example.com', 'Silver', '2022-03-03'),
+(11, 'Charlotte Lee', 'charlotte.lee@example.com', 'Gold', '2023-02-19'),
+(12, 'Henry Perez', 'henry.perez@example.com', 'Platinum', '2024-01-30'),
+(13, 'Amelia Harris', 'amelia.harris@example.com', 'Silver', '2021-12-12'),
+(14, 'Lucas Clark', 'lucas.clark@example.com', 'Gold', '2023-05-15'),
+(15, 'Mia Walker', 'mia.walker@example.com', 'Platinum', '2023-09-21'),
+(16, 'Ethan Lewis', 'ethan.lewis@example.com', 'Silver', '2021-06-08'),
+(17, 'Madison Young', 'madison.young@example.com', 'Gold', '2023-07-02'),
+(18, 'Alexander Scott', 'alexander.scott@example.com', 'Platinum', '2024-06-18'),
+(19, 'Chloe Green', 'chloe.green@example.com', 'Silver', '2022-10-05'),
+(20, 'Jack King', 'jack.king@example.com', 'Gold', '2023-04-13'),
+(21, 'Ella Adams', 'ella.adams@example.com', 'Platinum', '2024-02-22'),
+(22, 'Aiden Nelson', 'aiden.nelson@example.com', 'Silver', '2021-08-30'),
+(23, 'Grace Carter', 'grace.carter@example.com', 'Gold', '2023-01-01'),
+(24, 'David Mitchell', 'david.mitchell@example.com', 'Platinum', '2024-07-12'),
+(25, 'Isabella Perez', 'isabella.perez@example.com', 'Silver', '2021-11-14'),
+(26, 'Sebastian Walker', 'sebastian.walker@example.com', 'Gold', '2022-05-22'),
+(27, 'Lily Gonzalez', 'lily.gonzalez@example.com', 'Platinum', '2023-10-18'),
+(28, 'Daniel Martinez', 'daniel.martinez@example.com', 'Silver', '2022-04-07'),
+(29, 'Sophia Robinson', 'sophia.robinson@example.com', 'Gold', '2021-02-23'),
+(30, 'Jacob Harris', 'jacob.harris@example.com', 'Platinum', '2024-05-16');
+```
+
+### 4. **Delivery Dimension Table (30 rows)**
+
+```sql
+INSERT INTO Delivery_Dimension (Delivery_ID, Delivery_Person_Name, Vehicle_Type, Delivery_Status, Delivery_Time)
+VALUES
+(1, 'John Green', 'Car', 'Delivered', '12:30:00'),
+(2, 'Emily White', 'Bike', 'Delivered', '14:00:00'),
+(3, 'Michael Black', 'Car', 'In Progress', '13:45:00'),
+(4, 'Jessica Blue', 'Car', 'Delivered', '15:00:00'),
+(5, 'Daniel Red', 'Bike', 'In Progress', '13:15:00'),
+(6, 'Olivia Yellow', 'Bike', 'Delivered', '12:10:00'),
+(7, 'David Pink', 'Car', 'Delivered', '17:30:00'),
+(8, 'Sophia Orange', 'Car', 'Delivered', '16:00:00'),
+(9, 'William Gray', 'Bike', 'In Progress', '11:45:00'),
+(10, 'Chloe Purple', 'Car', 'Delivered', '14:30:00'),
+(11, 'Benjamin Brown', 'Bike', 'In Progress', '16:15:00'),
+(12, 'Amelia White', 'Car', 'Delivered', '12:00:00'),
+(13, 'Mason Green', 'Bike', 'Delivered', '14:45:00'),
+(14, 'James Red', 'Car', 'In Progress', '15:20:00'),
+(15, 'Ella Black', 'Car', 'Delivered', '13:50:00'),
+(16, 'Lucas Yellow', 'Bike', 'In Progress', '11:30:00'),
+(17, 'Isabella Pink', 'Car', 'Delivered', '12:40:00'),
+(18, 'Aiden Blue', 'Car', 'In Progress', '13:00:00'),
+(19, 'Grace Orange', 'Bike', 'Delivered', '16:40:00'),
+(20, 'Jack Purple', 'Car', 'Delivered', '14:20:00'),
+(21, 'Charlotte Gray', 'Bike', 'In Progress', '12:25:00'),
+(22, 'Ethan Brown', 'Car', 'Delivered', '11:50:00'),
+(23, 'Sebastian White', 'Bike', 'In Progress', '17:10:00'),
+(24, 'Daniel Red', 'Car', 'Delivered', '15:35:00'),
+(25, 'Sophia Green', 'Bike', 'In Progress', '13:05:00'),
+(26, 'Jacob Yellow', 'Car', 'Delivered', '14:40:00'),
+(27, 'Sophia Orange', 'Bike', 'In Progress', '16:25:00'),
+(28, 'Aiden Black', 'Car', 'Delivered', '17:00:00'),
+(29, 'Isabella Purple', 'Bike', 'In Progress', '12:50:00'),
+(30, 'David Blue', 'Car', 'Delivered', '15:10:00');
+```
+
+### 5. **Menu Item Dimension Table (30 rows)**
+
+```sql
+INSERT INTO Menu_Item_Dimension (Menu_Item_ID, Item_Name, Cuisine_Type, Price)
+VALUES
+(1, 'Margherita Pizza', 'Italian', 19.99),
+(2, 'Sushi Roll', 'Japanese', 12.99),
+(3, 'Cheeseburger', 'American', 9.99),
+(4, 'Taco', 'Mexican', 5.99),
+(5, 'Butter Chicken', 'Indian', 15.99),
+(6, 'Spaghetti Bolognese', 'Italian', 14.99),
+(7, 'Ramen', 'Japanese', 11.99),
+(8, 'BBQ Ribs', 'American', 18.99),
+(9, 'Dumplings', 'Chinese', 8.99),
+(10, 'Club Sandwich', 'American', 7.99),
+(11, 'Fettuccine Alfredo', 'Italian', 13.99),
+(12, 'Pho', 'Vietnamese', 9.99),
+(13, 'Ribeye Steak', 'American', 25.99),
+(14, 'Falafel', 'Middle Eastern', 6.99),
+(15, 'Churros', 'Spanish', 4.99),
+(16, 'Sushi Nigiri', 'Japanese', 13.99),
+(17, 'Pepperoni Pizza', 'Italian', 22.99),
+(18, 'BBQ Chicken', 'American', 16.99),
+(19, 'Biryani', 'Indian', 12.99),
+(20, 'Quesadilla', 'Mexican', 8.99),
+(21, 'General Tso\'s Chicken', 'Chinese', 10.99),
+(22, 'Grilled Cheese', 'American', 5.99),
+(23, 'Dim Sum', 'Chinese', 7.99),
+(24, 'Shawarma', 'Middle Eastern', 9.99),
+(25, 'Pad Thai', 'Thai', 11.99),
+(26, 'Fish Tacos', 'Mexican', 9.99),
+(27, 'Waffles', 'Belgian', 6.99),
+(28, 'Kebab', 'Middle Eastern', 12.99),
+(29, 'Lasagna', 'Italian', 16.99),
+(30, 'Fried Chicken', 'American', 13.99);
+```
+
+### 6. **Date Dimension Table (30 rows)**
+
+```sql
+INSERT INTO Date_Dimension (Date_ID, Date, Day, Month, Year, Quarter)
+VALUES
+(1, '2024-01-01', 'Monday', 'January', 2024, 1),
+(2, '2024-01-02', 'Tuesday', 'January', 2024, 1),
+(3, '2024-01-03', 'Wednesday', 'January', 2024, 1),
+(4, '2024-01-04', 'Thursday', 'January', 2024, 1),
+(5, '2024-01-05', 'Friday', 'January', 2024, 1),
+(6, '2024-01-06', 'Saturday', 'January', 2024, 1),
+(7, '2024-01-07', 'Sunday', 'January', 2024, 1),
+(8, '2024-01-08', 'Monday', 'January', 2024, 1),
+(9, '2024-01-09', 'Tuesday', 'January', 2024, 1),
+(10, '2024-01-10', 'Wednesday', 'January', 2024, 1),
+(11, '2024-01-11', 'Thursday', 'January', 2024, 1),
+(12, '2024-01-12', 'Friday', 'January', 2024, 1),
+(13, '2024-01-13', 'Saturday', 'January', 2024, 1),
+(14, '2024-01-14', 'Sunday', 'January', 2024, 1),
+(15, '2024-01-15', 'Monday', 'January', 2024, 1),
+(16, '2024-01-16', 'Tuesday', 'January', 2024, 1),  
+(17, '2024-01-17', 'Wednesday', 'January', 2024, 1),  
+(18, '2024-01-18', 'Thursday', 'January', 2024, 1),  
+(19, '2024-01-19', 'Friday', 'January', 2024, 1),  
+(20, '2024-01-20', 'Saturday', 'January', 2024, 1),  
+(21, '2024-01-21', 'Sunday', 'January', 2024, 1),  
+(22, '2024-01-22', 'Monday', 'January', 2024, 1),  
+(23, '2024-01-23', 'Tuesday', 'January', 2024, 1),  
+(24, '2024-01-24', 'Wednesday', 'January', 2024, 1),  
+(25, '2024-01-25', 'Thursday', 'January', 2024, 1),  
+(26, '2024-01-26', 'Friday', 'January', 2024, 1),  
+(27, '2024-01-27', 'Saturday', 'January', 2024, 1),  
+(28, '2024-01-28', 'Sunday', 'January', 2024, 1),  
+(29, '2024-01-29', 'Monday', 'January', 2024, 1),  
+(30, '2024-01-30', 'Tuesday', 'January', 2024, 1),  
+(31, '2024-01-31', 'Wednesday', 'January', 2024, 1);
